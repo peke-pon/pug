@@ -1,0 +1,46 @@
+extends modules/_layout
+
+block meta
+  - var title= "title";
+  - var description= "dscription";
+  - var keywords= "keyword";
+
+append style
+  link(rel="stylesheet" href="css/style.css")
+
+block content
+  .tool
+    ul
+      li
+        img(src="images/drop.svg" alt="twitter" width="32")
+      li
+        img(src="images/code.svg" alt="code" width="32")
+      li
+        img(src="images/image.svg" alt="image" width="32")
+      li
+        img(src="images/share.svg" alt="share" width="32")
+      li#toTop
+        img(src="images/up.svg" alt="up" width="32")
+        br
+        span.subTop Top
+  .navWrapper
+    nav
+      img(src="images/logo.svg" alt="logo" id="size")
+  .wrapper
+    .container
+      - for (var i = 1; i <= 30; i++)
+        - i < 10 ? i = "0" + i : i ;
+        .box
+          .color
+            span.hex
+          .text
+            .cap Color #{i}
+            .color-footer
+              .fav: img(src="images/fav.svg" alt="favorite")
+              .set: img(src="images/set.svg" alt="setting")
+
+block footer
+  include modules/_footer
+
+block script
+  script(src="scripts/index.js")
