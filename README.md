@@ -1,6 +1,6 @@
 # pug
 
-### _layout.pug
+### modules/_layout.pug
 
 ```pug
 doctype html
@@ -24,12 +24,6 @@ html(lang="ja")
     block footer
     block script
 ```
-
-共通になるヘッド要素をテンプレート化。
-
-各ページでタイトル、キーワード、ディスクリプションを記述できるように変数にしました。<br>
-変数は`block meta`で継承先で読み込ませるようにしています。
-
 ### index.pug
 
 ```pug
@@ -61,9 +55,38 @@ block script
   script(src="scripts/index.js")
 ```
 
-ページごとに柔軟性をもたせれるようにある程度ブロックに分けています。
-scriptやcssはページごとに読み込ませる事ができるように。
-footerはインクルードして別ファイルにしています。
+### modules/_card.pug
+
+```pug
+.box
+  .color
+    span.hex
+  .text
+    .cap Color #{i}
+    .color-footer
+      .fav: img(src="images/fav.svg" alt="favorite")
+      .set: img(src="images/set.svg" alt="setting")
+```
+
+### modules/_tool.pug
+
+```pug
+  
+.tool
+    ul
+      li
+        img(src="images/drop.svg" alt="twitter" width="32")
+      li
+        img(src="images/code.svg" alt="code" width="32")
+      li
+        img(src="images/image.svg" alt="image" width="32")
+      li
+        img(src="images/share.svg" alt="share" width="32")
+      li#toTop
+        img(src="images/up.svg" alt="up" width="32")
+        br
+        span.subTop Top
+```
 
 ### modules/_footer.pug
 
@@ -81,5 +104,3 @@ footer
   .left
   .right
 ```
-
-###
